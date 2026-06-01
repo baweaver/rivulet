@@ -1,10 +1,8 @@
 # Rivulet
 
-A small stream with a bit of state flowing through it.
+Sliding window operations for Ruby collections.
 
-Rivulet gives Ruby a vocabulary for sliding window operations — the grow-shrink-emit pattern that `Enumerable` never named. It sits between `each_cons` (fixed windows, no state) and hand-rolled pointer loops (flexible but noisy).
-
-Near-zero allocations on the hot path. 200k items, single-digit object count.
+Fixed and variable-size windows with O(1) incremental state and near-zero allocations. Sum, count, min/max, and combined stats windows that grow, shrink, and emit results without copying.
 
 ## Installation
 
@@ -86,7 +84,7 @@ Rivulet.sum(data)
 |---|---|---|
 | `Rivulet.sum(source)` | Running total | `sum`, `average`, `size` |
 | `Rivulet.sum(source) { \|item\| ... }` | Derived metric sum | `sum`, `average`, `size` |
-| `Rivulet.count(source)` | Item frequencies | `distinct`, `repeats?`, `max_count`, `covers?`, `sum`, `counts`, `size` |
+| `Rivulet.count(source)` | Item frequencies | `distinct`, `repeats?`, `max_count`, `covers?`, `counts`, `size` |
 | `Rivulet.minmax(source)` | Rolling min/max | `min`, `max`, `range`, `size` |
 | `Rivulet.stats(source)` | All of the above | `sum`, `average`, `min`, `max`, `range`, `distinct`, `repeats?`, `max_count`, `covers?`, `counts`, `size` |
 

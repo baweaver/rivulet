@@ -12,3 +12,4 @@
 
 .claude/
 Gemfile.lock
+*.gem
