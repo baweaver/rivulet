@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+bundle install
+
+# Install rubyfmt if not present
+if ! command -v rubyfmt &> /dev/null; then
+  echo "Installing rubyfmt..."
+  brew install rubyfmt
+fi
+
+# Install lefthook if not present
+if ! command -v lefthook &> /dev/null; then
+  echo "Installing lefthook..."
+  brew install lefthook
+fi
+
+lefthook install

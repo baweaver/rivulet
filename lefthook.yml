@@ -1,0 +1,13 @@
+pre-commit:
+  commands:
+    rspec:
+      glob: "**/*.rb"
+      run: bundle exec rspec
+    rubyfmt:
+      glob: "**/*.rb"
+      run: rubyfmt --check {staged_files}
+
+pre-push:
+  commands:
+    rspec:
+      run: bundle exec rspec
